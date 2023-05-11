@@ -1,0 +1,86 @@
+---
+import { SITE } from '~/config.mjs';
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+<Layout {meta}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    callToAction={{ text: 'Download brocher', href: 'https://github.com/onwidget/astrowind', icon: 'tabler:download' }}
+    callToAction2={{ text: 'Learn more', href: '#features' }}
+    image={{ src: import('~/assets/images/silogo.png'), alt: 'AstroWind Hero Image' }}
+  >
+    <Fragment slot="title">
+      India's most <span class="hidden lg:inline">advanced <br class="2xl:hidden"/> charger technology. </span>
+      <span class="text-accent dark:text-white highlight"> IGBT </span> based Charger with
+      <span class="text-accent dark:text-white highlight">Heaterless </span> Discharger
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        <span class="font-semibold">Swarajya Industries</span> in house R&D provides IGBT based charger and discharger (Microcontroller/DSP based)</span
+      >
+      <span class="block mb-1 sm:hidden font-bold text-blue-600">Swarajya Industries.</span> Suitable for battery manufactures.
+    </Fragment>
+  </Hero>
+
+  <!-- Note Widget ******************* -->
+
+  <Note />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    highlight="Features"
+    title="Features of Charger Discharger Products"
+    subtitle=""
+    items={[
+      [
+        {
+          title: 'Advanced Microcontroller',
+          description:
+            'A seamless integration between analong and digital inputs to increase productivity, performance and versatility.',
+          icon: 'mdi:chip',
+        },
+        {
+          title: 'LCD Touch Screen',
+          description:
+            'Menu driven LCD Display for setting various parameters',
+          icon: 'tabler:components',
+        },
+        {
+          title: 'Regenerative Discharger',
+          description:
+            'Built in Regenerative Discharger to smoothly transfer one battery bank charge into another battery bank to save power and electricty bill.',
+          icon: 'tabler:list-check',
+        },
+      ],
+      [
+        {
+          title: 'DSP based digital controlling',
+          description:
+            'A seamless integration between analong and digital inputs to increase productivity, performance and versatility.',
+          icon: 'charm:chip',
+        },
+        {
+          title: 'IOT Enabled (Optional*)',
+          description:
+            'Iot Enables to log your charging parameter to your specific cloud and enables reporting and dashboard.',
+          icon: 'tabler:rocket',
+        },
+      ],
+    ]}
+  />
+
+</Layout>
